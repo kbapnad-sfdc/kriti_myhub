@@ -33,7 +33,7 @@ export function Sidebar() {
             <Link
               href="/"
               className={cn(
-                "flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors",
+                "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors duration-200",
                 !typeParam
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
@@ -53,7 +53,7 @@ export function Sidebar() {
                   key={cat}
                   href={`/?type=${encodeURIComponent(cat)}`}
                   className={cn(
-                    "flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors",
+                    "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors duration-200",
                     isActive
                       ? "bg-accent text-accent-foreground"
                       : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
@@ -79,7 +79,7 @@ export function Sidebar() {
           <nav className="space-y-1">
             {resources.map((r) => {
               const isInternal = r.url.startsWith("/");
-              const className = "flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground";
+              const className = "flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-accent/50 hover:text-foreground";
               if (isInternal) {
                 return (
                   <Link

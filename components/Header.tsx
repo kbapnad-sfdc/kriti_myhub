@@ -33,7 +33,7 @@ export function Header() {
     <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b border-border bg-background px-6">
       <div className="flex items-center gap-2">
         <Cloud className="h-6 w-6 text-foreground" />
-        <span className="font-semibold text-foreground">{site.name}</span>
+        <span className="font-semibold text-foreground font-heading">{site.name}</span>
       </div>
       <div className="ml-auto flex items-center gap-2">
         <Button

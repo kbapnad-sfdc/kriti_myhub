@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Kriti's AFDC Hub",
@@ -15,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className="min-h-screen flex">
+    <html lang="en" className={`dark ${nunito.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen flex font-sans">
         <Suspense fallback={<div className="w-64 flex-shrink-0" />}>
           <Sidebar />
         </Suspense>

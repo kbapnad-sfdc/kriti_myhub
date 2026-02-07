@@ -21,7 +21,7 @@ export function AssetGrid({ assets, activeCategory, categoryLabel }: AssetGridPr
     <section className="space-y-4">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-lg font-semibold">{categoryLabel}</h2>
+          <h2 className="text-lg font-semibold font-heading">{categoryLabel}</h2>
           <Badge variant="muted" className="font-normal">
             {assets.length}
           </Badge>
@@ -46,7 +46,7 @@ export function AssetGrid({ assets, activeCategory, categoryLabel }: AssetGridPr
         </div>
       </div>
       {assets.length === 0 ? (
-        <p className="text-muted-foreground text-sm">No assets in this category yet.</p>
+        <p className="text-muted-foreground text-sm">Nothing here yet — I&apos;m still stocking the shelves. Watch this space.</p>
       ) : (
         <div
           className={cn(
@@ -55,10 +55,14 @@ export function AssetGrid({ assets, activeCategory, categoryLabel }: AssetGridPr
               : "flex flex-col gap-3"
           )}
         >
-          {assets.map((asset) => (
+          {assets.map((asset, i) => (
             <div
               key={asset.id}
-              className={cn(view === "list" && "max-w-2xl")}
+              className={cn(
+                view === "list" && "max-w-2xl",
+                "animate-fade-in-up opacity-0"
+              )}
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <AssetCard asset={asset} />
             </div>

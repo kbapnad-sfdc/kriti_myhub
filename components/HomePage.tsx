@@ -24,8 +24,8 @@ export function HomePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">
-          Welcome to{" "}
+        <h1 className="text-2xl font-bold tracking-tight font-heading">
+          Hey, welcome to{" "}
           <span className="text-accent-foreground">{site.name}</span>
         </h1>
         <p className="mt-1 text-muted-foreground">{site.subtitle}</p>

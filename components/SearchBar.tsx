@@ -9,7 +9,7 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder = "Search assets..." }: SearchBarProps) {
+export function SearchBar({ value, onChange, placeholder = "What are you looking for?" }: SearchBarProps) {
   return (
     <div className="relative max-w-md">
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

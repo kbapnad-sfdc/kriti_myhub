@@ -13,9 +13,9 @@ export function AssetCard({ asset }: AssetCardProps) {
       href={asset.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-xl"
+      className="block transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-2xl"
     >
-      <Card className="h-full overflow-hidden border-border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow">
+      <Card className="h-full overflow-hidden rounded-2xl border-border bg-card text-card-foreground shadow-sm transition-all duration-200 hover:shadow-lg hover:shadow-accent/10">
         <div className="relative aspect-video w-full bg-muted">
           <Image
             src={asset.thumbnail}

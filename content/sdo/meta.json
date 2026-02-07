@@ -1,0 +1,7 @@
+{
+  "title": "SDO Components",
+  "pages": [
+    { "title": "Introduction", "slug": "index" },
+    { "title": "Features", "slug": "features" }
+  ]
+}

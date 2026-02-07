@@ -1,0 +1,28 @@
+{
+  "site": {
+    "name": "Kriti's AFDC Hub",
+    "subtitle": "A curated collection of my agents, Lucid charts, and packages.",
+    "footerText": "Built by Kriti"
+  },
+  "assetCategories": [
+    "My agents",
+    "My Lucid Charts",
+    "My packages"
+  ],
+  "resources": [
+    { "label": "SDO components", "url": "/sdo" },
+    { "label": "Docs", "url": "/docs" },
+    { "label": "About me", "url": "https://example.com" }
+  ],
+  "assets": [
+    {
+      "id": "1",
+      "title": "Example agent",
+      "type": "My agents",
+      "url": "https://example.com",
+      "description": "Short description of your first agent.",
+      "thumbnail": "/thumbnails/placeholder.svg",
+      "tags": ["AGENTFORCE"]
+    }
+  ]
+}

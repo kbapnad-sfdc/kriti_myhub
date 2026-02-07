@@ -1,0 +1,24 @@
+---
+title: Introduction
+description: Welcome to the documentation
+---
+
+# Introduction
+
+Welcome to the docs. This is structured like [Dylan's docs](https://github.com/dylandersen/dylan-andersen-docs): content lives in `content/docs/` as MDX files, and the sidebar is driven by `meta.json`.
+
+## What's here
+
+- **Getting Started** – Setup and first steps
+- Add more pages by creating `.mdx` files in `content/docs/` and adding them to `meta.json`
+
+## Adding content
+
+1. Create a new `.mdx` file in `content/docs/` (e.g. `my-topic.mdx`)
+2. Add frontmatter with `title` and optional `description`
+3. Add the page to `content/docs/meta.json` in the `pages` array:
+   ```json
+   { "title": "My Topic", "slug": "my-topic" }
+   ```
+
+The slug should match the filename without `.mdx`.

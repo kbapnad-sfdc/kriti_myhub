@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Generative AI",
+    "whyGreat": "Boost productivity by auto generating multi step action plans, service replies, summarizing conversations during escalations and transfers once an interaction is closed, crafting Knowledge articles, and surfacing relevant answers grounded in Knowledge for service reps' and customers' commonly asked questions.",
+    "whatINeed": "No data requirements. Requires Service Cloud Enterprise or Unlimited Edition. Included in Agentforce 1 Service Edition and Agentforce for Service.",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.agentforce_genai.htm"
+  },
+  {
+    "name": "Agentforce Service Agent",
+    "whyGreat": "Deflect cases and reduce costs with 24/7 autonomous support, across any channel.",
+    "whatINeed": "No data requirements. Requires Service Cloud Enterprise or Unlimited Edition. Included in Agentforce 1 Service Edition and Agentforce for Service.",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.agentforce_asa.htm"
+  },
+  {
+    "name": "Agentforce Employee Agent",
+    "whyGreat": "Boost productivity and resolve complex issues faster with internal AI agents embedded in reps' workspaces.",
+    "whatINeed": "No data requirements. Requires Service Cloud Enterprise or Unlimited Edition. Included in Agentforce 1 Service Edition and Agentforce for Service.",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.agentforce_eea.htm"
+  }
+]

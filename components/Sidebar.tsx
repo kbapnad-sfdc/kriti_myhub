@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Bot, Image, Package, FileText, ExternalLink, Menu } from "lucide-react";
+import { Bot, Image as ImageIcon, Package, FileText, ExternalLink, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { loadSiteData, getCategoryCounts } from "@/lib/data";
@@ -11,7 +12,7 @@ import { useState } from "react";
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "My agents": Bot,
-  "My Lucid Charts": Image,
+  "My Lucid Charts": ImageIcon,
   "My packages": Package,
 };
 
@@ -23,7 +24,18 @@ export function Sidebar() {
   const [open, setOpen] = useState(false);
 
   const content = (
-    <div className="flex h-full w-64 flex-col border-r border-border bg-background p-4">
+    <div className="flex h-full w-64 flex-col border-r border-border bg-background/95 p-4 glass dark:bg-background/90">
+      <div className="mb-4 flex justify-center">
+        <div className="relative h-16 w-16 opacity-90 dark:opacity-80">
+          <Image
+            src="/graphics/tree2.png"
+            alt=""
+            fill
+            className="object-contain"
+            sizes="64px"
+          />
+        </div>
+      </div>
       <div className="space-y-6">
         <div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -35,7 +47,7 @@ export function Sidebar() {
               className={cn(
                 "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors duration-200",
                 !typeParam
-                  ? "bg-accent text-accent-foreground"
+                  ? "bg-accent text-accent-foreground shadow-glow-sm"
                   : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
               )}
               onClick={() => setOpen(false)}
@@ -45,19 +57,26 @@ export function Sidebar() {
                 {counts.All}
               </span>
             </Link>
-            {assetCategories.map((cat) => {
+{assetCategories.map((cat, idx) => {
               const Icon = categoryIcons[cat] ?? FileText;
               const isActive = typeParam === encodeURIComponent(cat);
+              const neonClass = isActive
+                ? idx === 0
+                  ? "shadow-neon-blue"
+                  : idx === 1
+                    ? "shadow-neon-purple"
+                    : "shadow-neon-lime"
+                : "";
               return (
                 <Link
                   key={cat}
                   href={`/?type=${encodeURIComponent(cat)}`}
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors duration-200",
-                    isActive
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
-                  )}
+                "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-all duration-200",
+                isActive
+                  ? "bg-accent text-accent-foreground shadow-glow-sm " + neonClass
+                  : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+              )}
                   onClick={() => setOpen(false)}
                 >
                   <span className="flex items-center gap-2">

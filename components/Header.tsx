@@ -30,9 +30,9 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b border-border bg-background px-6">
+    <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b border-border bg-background/95 px-6 glass dark:bg-background/90">
       <div className="flex items-center gap-2">
-        <Cloud className="h-6 w-6 text-foreground" />
+        <Cloud className="h-6 w-6 text-primary dark:text-accent" />
         <span className="font-semibold text-foreground font-heading">{site.name}</span>
       </div>
       <div className="ml-auto flex items-center gap-2">
@@ -41,6 +41,7 @@ export function Header() {
           size="icon"
           onClick={() => setDark((d) => !d)}
           aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+          className="text-muted-foreground hover:text-foreground"
         >
           {mounted && dark ? (
             <Sun className="h-4 w-4" />
@@ -48,7 +49,7 @@ export function Header() {
             <Moon className="h-4 w-4" />
           )}
         </Button>
-        <Button variant="ghost" size="sm" onClick={handleShare}>
+        <Button variant="ghost" size="sm" onClick={handleShare} className="text-muted-foreground hover:text-foreground hover:bg-accent/10">
           <Share2 className="h-4 w-4 mr-1" />
           Share
         </Button>

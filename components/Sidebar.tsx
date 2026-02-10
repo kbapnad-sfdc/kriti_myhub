@@ -25,14 +25,15 @@ export function Sidebar() {
 
   const content = (
     <div className="flex h-full w-64 flex-col border-r border-border bg-background/95 p-4 glass dark:bg-background/90">
-      <div className="mb-4 flex justify-center">
-        <div className="relative h-16 w-16 opacity-90 dark:opacity-80">
+      <div className="mb-3 flex justify-center">
+        <div className="relative h-20 w-20 flex-shrink-0">
           <Image
-            src="/graphics/tree2.png"
+            src="/graphics/astro.png"
             alt=""
             fill
             className="object-contain"
-            sizes="64px"
+            sizes="80px"
+            priority
           />
         </div>
       </div>

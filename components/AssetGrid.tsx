@@ -13,39 +13,43 @@ interface AssetGridProps {
   assets: Asset[];
   activeCategory: string | null;
   categoryLabel: string;
+  /** When true, only the grid/list content is shown; header with count and grid/list toggle is shown by parent. */
+  hideHeader?: boolean;
 }
 
-export function AssetGrid({ assets, activeCategory, categoryLabel }: AssetGridProps) {
+export function AssetGrid({ assets, activeCategory, categoryLabel, hideHeader }: AssetGridProps) {
   const [view, setView] = useState<"grid" | "list">("grid");
 
   return (
     <section className="space-y-4">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-2">
-          <h2 className="text-lg font-semibold font-heading">{categoryLabel}</h2>
-          <Badge variant="muted" className="font-normal">
-            {assets.length}
-          </Badge>
+      {!hideHeader && (
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold font-heading">{categoryLabel}</h2>
+            <Badge variant="muted" className="font-normal">
+              {assets.length}
+            </Badge>
+          </div>
+          <div className="flex gap-1">
+            <Button
+              variant={view === "grid" ? "secondary" : "ghost"}
+              size="icon"
+              onClick={() => setView("grid")}
+              aria-label="Grid view"
+            >
+              <LayoutGrid className="h-4 w-4" />
+            </Button>
+            <Button
+              variant={view === "list" ? "secondary" : "ghost"}
+              size="icon"
+              onClick={() => setView("list")}
+              aria-label="List view"
+            >
+              <List className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
-        <div className="flex gap-1">
-          <Button
-            variant={view === "grid" ? "secondary" : "ghost"}
-            size="icon"
-            onClick={() => setView("grid")}
-            aria-label="Grid view"
-          >
-            <LayoutGrid className="h-4 w-4" />
-          </Button>
-          <Button
-            variant={view === "list" ? "secondary" : "ghost"}
-            size="icon"
-            onClick={() => setView("list")}
-            aria-label="List view"
-          >
-            <List className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
+      )}
       {assets.length === 0 ? (
         <div className="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-border bg-muted/30 px-6 py-12 text-center">
           <div className="relative h-24 w-24 opacity-60">

@@ -11,6 +11,8 @@ export type Asset = {
   description: string;
   thumbnail: string;
   tags: string[];
+  /** Optional: "large" | "medium" | "small" for bento grid. Omit = "medium". */
+  bentoSize?: "large" | "medium" | "small";
 };
 
 export interface SiteData {
@@ -26,12 +28,19 @@ export function loadSiteData(): SiteData {
 
 export function getFilteredAssets(
   type: string | null,
-  search: string
+  search: string,
+  selectedTags: string[] = []
 ): Asset[] {
   let list = siteData.assets as Asset[];
 
   if (type && type !== "All") {
     list = list.filter((a) => a.type === type);
+  }
+
+  if (selectedTags.length > 0) {
+    list = list.filter((a) =>
+      a.tags?.some((t) => selectedTags.includes(t))
+    );
   }
 
   if (search.trim()) {
@@ -45,6 +54,17 @@ export function getFilteredAssets(
   }
 
   return list;
+}
+
+/** All unique tags across assets (for filter pills). Sorted. */
+export function getAllTags(): string[] {
+  const set = new Set<string>();
+  for (const a of siteData.assets as Asset[]) {
+    for (const t of a.tags ?? []) {
+      if (t.trim()) set.add(t);
+    }
+  }
+  return Array.from(set).sort();
 }
 
 export function getCategoryCounts(): Record<string, number> {
